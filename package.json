@@ -8,11 +8,15 @@
   "license": "Commercial License",
   "scripts": {
     "test": "echo \"Error no any test specified yet. \" && exit 1",
-    "init": "cd server && npm i"
+    "init": "cd server && npm i",
+    "run": "sudo -u evilj0e node server"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/evilj0e/goods-shelf"
+  },
+  "dependencies": {
+    "nodemon": ">= 1.3.7"
   }
 
 }
