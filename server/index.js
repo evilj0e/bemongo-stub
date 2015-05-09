@@ -1,13 +1,12 @@
-var express = require('express'),
-    path = require('path'),
-    fs = require('fs'),
-    app = express();
+var path = require('path'),
 
-app.get('/', function(req, res, next) {
-   res.send('Sup, man!');
-});
+    fs = require('fs'),
+    app = require('./app');
 
 var sock = path.join(__dirname, 'run', 'index.sock');
-fs.unlinkSync(sock);
-console.log(sock);
-app.listen(sock);
+if (fs.existsSync(sock)) {
+    console.log('unlink socket :(');
+    fs.unlinkSync(sock);
+}
+
+app(sock);
