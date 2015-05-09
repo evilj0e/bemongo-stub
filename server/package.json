@@ -1,0 +1,16 @@
+{
+  "name": "goods-shelf",
+  "version": "0.0.1",
+  "description": "The test project on b_ with priv.js",
+  "author": "@evilj0e",
+  "email": "antonykonev@yandex.ru",
+  "main": "index.js",
+  "license": "Commercial License",
+  "scripts": {
+    "test": "echo \"Error no any test specified yet. \" && exit 1"
+  },
+  "dependencies": {
+    "express": ">= 4.12.3"
+  }
+
+}
