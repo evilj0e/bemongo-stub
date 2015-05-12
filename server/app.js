@@ -14,8 +14,8 @@ module.exports = function(sock) {
         res.send('Sup, man!');
     });
 
-    app.get('/get/', db.get);
-    app.get('/post/', db.post);
+    app.get('/get/', db.getGoods);
+    app.get('/post/', db.postGood);
 
     app.listen(sock);
     console.log('Start listening socket: ', sock);

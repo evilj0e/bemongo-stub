@@ -10,7 +10,9 @@
     "test": "echo \"Error no any test specified yet. \" && exit 1"
   },
   "dependencies": {
-    "express": ">= 4.12.3"
+    "express": ">= 4.12.3",
+    "mongodb": "~2.0.31",
+    "vow": "~0.4.9"
   }
 
 }
