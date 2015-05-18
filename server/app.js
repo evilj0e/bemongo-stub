@@ -1,8 +1,18 @@
 var express = require('express'),
     app = express(),
-    db = require('./controllers/db');
+    db = require('./controllers/db'),
+
+    path = require('path'),
+    root = path.join(__dirname, '..');
 
 module.exports = function(sock) {
+    require('./middleware/express-bemView')(app, {
+        templateRoot: path.join(root, 'static'),
+        // параметры по умолчанию
+        bundleName: 'desktop',
+        availableBundles: ['desktop'],
+        languageId: 'ru'
+    });
 
     //logger
     app.use(function(req, res, next) {
@@ -11,7 +21,16 @@ module.exports = function(sock) {
     });
 
     app.get('/', function(req, res, next) {
-        res.send('Sup, man!');
+        res.render('index', {
+            user: 'Vasya',
+            language: 'ru'
+        }, function(err, html) {
+            if (err) {
+                res.send(500, err);
+            } else {
+                res.send(html);
+            }
+        });
     });
 
     //some mongodb routes

@@ -1,6 +1,8 @@
 module.exports = function (blocks) {
     blocks.declare('b-page', function (data, page) {
 
+        console.log('ntrcn');
+
         return [
             {
                 block: 'b-page',
