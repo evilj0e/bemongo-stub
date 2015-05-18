@@ -2,4 +2,13 @@ npm-debug.log
 
 .idea
 .git
+._*
+*.log
 node_modules
+static/node_modules
+static/vendors
+static/.enb/tmp
+static/desktop.bundles/*/*
+!static/desktop.bundles/*/blocks
+!static/desktop.bundles/*/*.bemjson.js
+!static/desktop.bundles/*/*.bemdecl.js

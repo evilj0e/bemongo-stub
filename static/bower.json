@@ -1,0 +1,16 @@
+{
+  "name": "static",
+  "version": "0.0.1",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bem-bl": "git://github.com/bem/bem-bl.git",
+    "bem-components": "git://github.com/bem/bem-components.git"
+  }
+}

@@ -8,7 +8,7 @@
   "license": "Commercial License",
   "scripts": {
     "test": "echo \"Error no any test specified yet. \" && exit 1",
-    "init": "cd server && npm i",
+    "init": "cd server && npm i && cd ../static && npm i && ./node_modules/.bin/bower i && ./node_modules/.bin/enb make",
     "run": "sudo -u evilj0e node server"
   },
   "repository": {
