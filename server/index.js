@@ -9,4 +9,4 @@ if (fs.existsSync(sock)) {
     fs.unlinkSync(sock);
 }
 
-app(sock);
+app(3000 || sock);

@@ -19,5 +19,15 @@ module.exports = {
 
     getUser: function(id, clb) {
         db_users.findOne({ id: id }, clb);
+    },
+
+    addUser: function(name)
+    {
+        db_users.insert({ name: name }, function(err, records) { console.log(records); });
+    },
+
+    getUsers: function(clb)
+    {
+        db_users.find({}, clb);
     }
 };

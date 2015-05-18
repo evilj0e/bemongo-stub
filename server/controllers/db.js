@@ -3,10 +3,10 @@ var db = require('../lib/db');
 module.exports = {
 
     getGoods: function(req, res) {
-        user_id = req.query.user.split('/')[0];
+        var user_id = req.query.user.split('/')[0];
 
         db.getUser(user_id, function(err, user) {
-            page = user.profile.displayName + ' &mdash; ' + user.profile.name.familyName + '&nbsp;' + user.profile.name.givenName;
+            var page = user.name;
 
             db.getUserGoods(user_id, function(err, cursor) {
                 cursor.toArray(function(err, arr) {
@@ -25,5 +25,31 @@ module.exports = {
         par = req.query.s;
 
         res.send('set par=' + par);
+    },
+
+    addUser: function(req, res) {
+        data = req.query.name;
+
+        db.addUser(data);
+
+        res.send('set name = ' + data);
+    },
+
+    getUsers: function(req, res) {
+        db.getUsers(function(err, cursor)
+        {
+            cursor.toArray(function(err, arr) {
+                var page = '<ul>';
+
+                arr.forEach(function(user) {
+                    console.log(user);
+
+                    page += '<li>' + user.name + '</li><br>';
+                });
+                page += '</ul>';
+
+                res.send(page);
+            });
+        });
     }
 };
