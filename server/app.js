@@ -1,18 +1,22 @@
 var express = require('express'),
     app = express(),
+    path = require('path'),
+    root = path.join(__dirname, '..'),
+
     db = require('./controllers/db'),
 
-    path = require('path'),
-    root = path.join(__dirname, '..');
+    auth = require('./controllers/auth'),
+    passport = require('./lib/passport');
 
 module.exports = function(sock) {
     require('./middleware/express-bemView')(app, {
         templateRoot: path.join(root, 'static'),
-        // параметры по умолчанию
         bundleName: 'desktop',
         availableBundles: ['desktop'],
         languageId: 'ru'
     });
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     //logger
     app.use(function(req, res, next) {
@@ -38,6 +42,9 @@ module.exports = function(sock) {
     app.get('/post/', db.postGood);
     app.get('/user/add', db.addUser);
     app.get('/user/', db.getUsers);
+    // auth routes
+    app.get('/auth/', passport.authenticate('yandex'), auth.auth);
+    app.get('/auth/yandex/callback', passport.authenticate('yandex', { failureRedirect: '/login' }), auth.callback);
 
     app.listen(sock);
     console.log('Start listening socket: ', sock);
