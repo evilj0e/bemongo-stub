@@ -1,9 +1,8 @@
 var path = require('path'),
-
     fs = require('fs'),
-    app = require('./app');
+    app = require('./app'),
+    sock = path.join(__dirname, 'run', 'index.sock');
 
-var sock = path.join(__dirname, 'run', 'index.sock');
 if (fs.existsSync(sock)) {
     console.log('unlink socket :(');
     fs.unlinkSync(sock);
