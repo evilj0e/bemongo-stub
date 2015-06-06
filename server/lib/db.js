@@ -4,7 +4,10 @@ var MongoClient = require('mongodb').MongoClient,
     db_goods, db_users, users;
 
 MongoClient.connect('mongodb://localhost:27017/goods-shelf', function(err, db) {
-	if (err) throw err;
+	if (err) {
+        console.log("I can't connect to DB. Is it running?");
+        throw err;
+    }
 
     console.log("Connected to DB");
 

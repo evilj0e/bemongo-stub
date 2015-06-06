@@ -1,8 +1,5 @@
 module.exports = function (blocks) {
     blocks.declare('b-page', function (data, page) {
-
-        console.log('ntrcn');
-
         return [
             {
                 block: 'b-page',
@@ -13,7 +10,7 @@ module.exports = function (blocks) {
                     { elem: 'css', url: '/desktop.bundles/' + page + '/_' + page, ie: true },
                     { elem: 'js', url: '//yastatic.net/jquery/1.8.3/jquery.min.js' },
                     { elem: 'js', url: '/desktop.bundles/' + page + '/_' + page + '.' + data.language + '.js' },
-                    { elem: 'favicon', url: '//yastatic.net/lego/_/pDu9OWAQKB0s2J9IojKpiS_Eho.ico' },
+                    //{ elem: 'favicon', url: '//yastatic.net/lego/_/pDu9OWAQKB0s2J9IojKpiS_Eho.ico' },
                     { elem: 'meta', attrs: { name: 'description', content: '' } },
                     { elem: 'meta', attrs: { name: 'keywords', content: '' } },
                     { elem: 'meta', attrs: { property: 'og:title', content: '' } },
@@ -23,7 +20,9 @@ module.exports = function (blocks) {
                 ],
                 'x-ua-compatible': 'IE=EmulateIE7, IE=edge',
 
-                content: 'текст'
+                content: [
+                    data.user.username
+                ]
             }
         ];
     });

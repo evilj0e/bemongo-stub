@@ -44,7 +44,7 @@ module.exports = {
                 arr.forEach(function(user) {
                     console.log(user);
 
-                    page += '<li>' + user.name + '</li><br>';
+                    page += '<li>' + (user.profile && user.profile.username) + '</li><br>';
                 });
                 page += '</ul>';
 
