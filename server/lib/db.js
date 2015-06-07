@@ -1,7 +1,7 @@
 var MongoClient = require('mongodb').MongoClient,
     vow = require('vow'),
 
-    db_goods, db_users, users;
+    db_users, db_goods;
 
 MongoClient.connect('mongodb://localhost:27017/goods-shelf', function(err, db) {
 	if (err) {

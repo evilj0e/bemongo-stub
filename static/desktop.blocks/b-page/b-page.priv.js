@@ -21,7 +21,8 @@ module.exports = function (blocks) {
                 'x-ua-compatible': 'IE=EmulateIE7, IE=edge',
 
                 content: [
-                    data.user.username
+                    blocks.exec('b-menu', data),
+                    blocks.exec('pre', data)
                 ]
             }
         ];

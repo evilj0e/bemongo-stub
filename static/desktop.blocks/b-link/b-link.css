@@ -1,0 +1,12 @@
+.b-link
+{
+    text-decoration: none;
+
+    color: #888;
+    border-bottom: 1px dotted #fff;
+}
+
+.b-link:visited
+{
+    color: #aaa;
+}

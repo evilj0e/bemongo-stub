@@ -1,6 +1,6 @@
-function ensureAuthenticated(req, res, next) {
+function ensureAuthenticated(req, res) {
     if (req.isAuthenticated()) {
-        return next();
+        return;
     }
 
     res.redirect('/login')

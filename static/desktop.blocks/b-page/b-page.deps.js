@@ -11,6 +11,8 @@
         }
     ],
     shouldDeps: [
+        { block: 'b-menu' },
+        { block: 'pre' }
     ]
 });
 
