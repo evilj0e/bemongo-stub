@@ -2,22 +2,21 @@ var index    = require('./controllers/index'),
 
     db       = require('./controllers/db'),
     auth     = require('./controllers/auth'),
-    passport = require('./lib/passport');
+    passport = require('./lib/passport'),
+
+    ensureAuthanticated = require('./middleware/express-checkAuth');
 
 module.exports = function (app) {
-    app.get('/',        index.index);
-    app.get('/account', index.index);
-    app.get('/goods',   index.index);
-    app.get('/users',   index.index);
+    app.get('/',               index.index);
+    app.get('/goods',          index.index);
+    app.get('/account',        ensureAuthanticated, index.index);
+    app.get('/users',          ensureAuthanticated, index.index);
 
     // авторизация
-    app.get('/login',   function(req, res) { res.redirect('/auth') });
-    app.get('/auth',
-        passport.authenticate('yandex'),
-        auth.passportAuth);
-    app.get('/auth/yandex/callback',
-        passport.authenticate('yandex', { failureRedirect: '/auth' }),
-        auth.passportCallback);
+    app.get('/login',          passport.authenticate('yandex'));
+    app.get('/login/callback', passport.authenticate('yandex', { failureRedirect: '/login' }), auth.passportLoginCb);
+    app.get('/logout',         auth.passportLogout);
+
 
     //some mongodb routes
     //app.get('/get/',     db.getGoods);

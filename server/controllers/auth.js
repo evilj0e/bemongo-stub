@@ -1,9 +1,10 @@
 module.exports = {
-    passportAuth: function(req, res) {
-
+    passportLoginCb: function(req, res) {
+        res.redirect('/account');
     },
 
-    passportCallback: function(req, res) {
+    passportLogout: function(req, res) {
+        req.logout();
         res.redirect('/');
     }
 };

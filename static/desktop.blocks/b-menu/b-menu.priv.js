@@ -5,7 +5,7 @@ module.exports = function (blocks) {
                 block: 'b-menu',
                 content: (function(){
                     return data.menu.map(function (item) {
-                        return {
+                        return item && {
                             elem: 'item',
                             content: {
                                 block: 'b-link',
