@@ -3,11 +3,7 @@ module.exports = function (blocks) {
         return [
             {
                 tag: 'pre',
-                content: [
-                    data.isAccount && JSON.stringify(data.user,  null, 2),
-                    data.isGoods   && JSON.stringify(data.goods, null, 2),
-                    data.isUsers   && JSON.stringify(data.users, null, 2)
-                ]
+                content: data.contentType && JSON.stringify(data[data.contentType],  null, 2)
             }
         ];
     });

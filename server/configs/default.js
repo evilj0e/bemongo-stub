@@ -26,10 +26,11 @@ module.exports = {
             ];
 
         return {
-            user: req.user,
             language: 'ru',
+            route: req.route,
             menu: defaultMenuItems.concat(req.user.username ? authorizedMenuItems : notAuthorizedMenuItems),
-            route: req.route
+            contentType: 'main',
+            main: 'Стаб проект на b_ + mongoDB с авторизацией через OAuth от Я.Паспорта'
         }
     }
 };

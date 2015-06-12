@@ -2,7 +2,6 @@ var index    = require('./controllers/index'),
 
     db       = require('./controllers/db'),
     auth     = require('./controllers/auth'),
-    passport = require('./lib/passport'),
 
     ensureAuthanticated = require('./middleware/express-checkAuth');
 
@@ -13,8 +12,8 @@ module.exports = function (app) {
     app.get('/users',          ensureAuthanticated, index.index);
 
     // авторизация
-    app.get('/login',          passport.authenticate('yandex'));
-    app.get('/login/callback', passport.authenticate('yandex', { failureRedirect: '/login' }), auth.passportLoginCb);
+    app.get('/login',          auth.passportLogin);
+    app.get('/login/callback', auth.passportLoginCb);
     app.get('/logout',         auth.passportLogout);
 
 
@@ -25,6 +24,6 @@ module.exports = function (app) {
     //app.get('/users/',   db.getUsers);
 
     app.get('*', function (req, res) {
-        res.send(404);
+        res.sendStatus(404);
     });
 };

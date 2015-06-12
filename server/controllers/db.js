@@ -35,6 +35,12 @@ module.exports = {
         res.send('set name = ' + data);
     },
 
+    getUser: function(req, res) {
+        return req.user && db.getUser(req.user.id, function(err, user) {
+            return user;
+        })
+    },
+
     getUsers: function(req, res) {
         db.getUsers(function(err, cursor)
         {
