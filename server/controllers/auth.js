@@ -4,7 +4,7 @@ module.exports = {
     passportLoginCb: [
         passport.authenticate('yandex', { failureRedirect: '/login' }),
         function(req, res) {
-            res.redirect('/account');
+            res.redirect('/');
         }
     ],
 

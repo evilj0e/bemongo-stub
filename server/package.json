@@ -12,7 +12,7 @@
   "dependencies": {
     "express": ">= 4.12.3",
     "mongodb": "~2.0.31",
-    "vow": "~0.4.9",
+    "bluebird": "~2.9.27",
     "passport": "~0.2.2",
     "passport-yandex": "~0.0.3",
     "express-session": "~1.11.2",

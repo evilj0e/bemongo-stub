@@ -2,21 +2,18 @@ var db = require('../lib/db');
 
 module.exports = {
 
-    getGoods: function(req, res) {
-        var user_id = (req.query.user && req.query.user.split('/')[0]) || req.user.id;
+    getGoods: function(uid, needCount, cb) {
+        db.getUserGoods(uid, function(err, cursor) {
+            cursor.toArray(function(err, arr) {
+                var result = '';
 
-        db.getUser(user_id, function(err, user) {
-            var page = user.name;
+                if (needCount === true || !arr.length) {
+                    result = 'Всего товаров: ' + arr.length;
+                } else {
+                    result = arr;
+                }
 
-            db.getUserGoods(user_id, function(err, cursor) {
-                cursor.toArray(function(err, arr) {
-
-                    arr.forEach(function(item) {
-                        page += '<br>' + item.content;
-                    });
-
-                    res.send(page);
-                });
+                cb(result);
             });
         });
     },
@@ -35,23 +32,22 @@ module.exports = {
         res.send('set name = ' + data);
     },
 
-    getUser: function(req, res) {
-        return req.user && db.getUser(req.user.id, function(err, user) {
-            return user;
-        })
+    getUser: function(uid, cb) {
+        uid && db.getUser(uid, cb)
     },
 
-    getUsers: function(req, res) {
-        db.getUsers(function(err, cursor)
-        {
+    getUsers: function(needCount, cb) {
+        db.getUsers(function(err, cursor) {
             cursor.toArray(function(err, arr) {
                 var result = '';
 
-                arr.forEach(function(user) {
-                    result += JSON.stringify(user, null, 2);
-                });
+                if (needCount === true || !arr.length) {
+                    result = 'Всего зарегистрировано пользователей: ' + arr.length;
+                } else {
+                    result = arr;
+                }
 
-                res.end(result);
+                cb(result);
             });
         });
     }
