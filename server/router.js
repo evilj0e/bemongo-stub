@@ -1,8 +1,6 @@
 var index    = require('./controllers/index'),
     user     = require('./controllers/user'),
     good     = require('./controllers/good'),
-
-    db       = require('./controllers/db'),
     auth     = require('./controllers/auth'),
 
     ensureAuthanticated = require('./middleware/express-checkAuth');

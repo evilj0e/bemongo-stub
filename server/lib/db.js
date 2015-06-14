@@ -45,7 +45,7 @@ var promise = require('bluebird'),
         },
 
         getUserGoods: function(id, cb) {
-            var params = id !== undefined ? { "uid": id } : {};
+            var params = id !== undefined ? { 'uid': id } : {};
 
             db_goods.find(params)
                 .then(cb)
@@ -75,4 +75,3 @@ var promise = require('bluebird'),
         //
         //console.log(result);
     };
-

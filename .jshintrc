@@ -1,0 +1,40 @@
+{
+    // Enforcing options,
+    "camelcase": false,
+    "curly": false,
+    "eqeqeq": true,
+    "immed": true,
+    "indent": 4,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "quotmark": "single",
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "maxdepth": 3,
+    "maxstatements": 12,
+    "maxcomplexity": 5,
+
+    // Relaxing options
+    "boss": true,
+    "eqnull": true,
+    "expr": true,
+    "lastsemic": true,
+    "sub": true,
+    "laxcomma": false,
+    "evil": false,
+
+    // Environments
+    "maxerr": 5,
+    "browser": true,
+    "jquery": true,
+    "node": true,
+    "strict": false,
+    "predef": [
+        "BEM",
+        "bh",
+        "define",
+        "Lego"
+    ]
+}

@@ -1,0 +1,7 @@
+*.deps.js
+**/node_modules/**
+.git/**
+static/.bem/**
+static/vendors/**
+static/desktop.bundles/**/*.bemdecl.js
+server/lib/bemView.js

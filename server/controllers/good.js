@@ -2,7 +2,7 @@ var configs = require('../configs/default'),
     db      = require('./db');
 
 module.exports = {
-    index: function(req, res, next) {
+    index: function(req, res) {
         var data = configs.defaults(req),
             render = function() {
                 return res.render('index', data, function(err, html) {
@@ -22,7 +22,7 @@ module.exports = {
         });
     },
 
-    users: function(req, res, next) {
+    users: function(req, res) {
         var data = configs.defaults(req),
             render = function() {
                 return res.render('index', data, function(err, html) {

@@ -19,7 +19,7 @@ module.exports = {
     },
 
     getUser: function(uid, cb) {
-        uid && db.getUser(uid, cb)
+        uid && db.getUser(uid, cb);
     },
 
     getUsers: function(needCount, cb) {
@@ -39,6 +39,6 @@ module.exports = {
     },
 
     getStats: function(cb) {
-        db.getStats(cb)
+        db.getStats(cb);
     }
 };

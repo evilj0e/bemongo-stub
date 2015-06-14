@@ -9,13 +9,13 @@ module.exports = {
         languageId: 'ru'
     },
 
-    defaults: function(req){
+    defaults: function(req) {
         req.user = req.user ? req.user : {};
 
         var defaultMenuItems = [
                 { title: 'Главная', url: '/' },
                 { title: 'Все пользователи', url: '/users' },
-                { title: req.user ? 'Мои товары' : 'Все товары', url: '/goods'}
+                { title: req.user ? 'Мои товары' : 'Все товары', url: '/goods' }
             ],
             authorizedMenuItems = [
                 { title: req.user.username, url: '/account' },
@@ -31,6 +31,6 @@ module.exports = {
             menu: defaultMenuItems.concat(req.user.username ? authorizedMenuItems : notAuthorizedMenuItems),
             contentType: 'main',
             main: 'Стаб проект на b_ + mongoDB с авторизацией через OAuth от Я.Паспорта<br/><br/>'
-        }
+        };
     }
 };

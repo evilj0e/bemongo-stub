@@ -5,9 +5,6 @@ var express  = require('express'),
     root     = path.join(__dirname, '..'),
     session  = require('express-session'),
     MongoStore = require('connect-mongo')(session),
-
-    db       = require('./controllers/db'),
-    auth     = require('./controllers/auth'),
     passport = require('./lib/passport');
 
 module.exports = function(sock) {

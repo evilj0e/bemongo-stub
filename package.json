@@ -10,14 +10,23 @@
     "test": "echo \"Error no any test specified yet. \" && exit 1",
     "init": "cd server && npm i && cd ../static && npm i && ./node_modules/.bin/bower i && ./node_modules/.bin/enb make",
     "server": "cd ./static && ./node_modules/.bin/enb make && cd .. && sudo -u evilj0e node server",
-    "serverOnly": "sudo -u evilj0e node server"
+    "serverOnly": "sudo -u evilj0e node server",
+    "jscs": "./node_modules/jscs/bin/jscs --verbose ./server",
+    "jshint": "./node_modules/jshint/bin/jshint --verbose ./server",
+    "codestyle": "npm run jscs && npm run jshint"
   },
+  "pre-commit": ["codestyle"],
   "repository": {
     "type": "git",
     "url": "https://github.com/evilj0e/goods-shelf"
   },
   "dependencies": {
     "nodemon": ">= 1.3.7"
+  },
+  "devDependencies": {
+    "jscs": ">= 1.13.1",
+    "jshint": ">= 2.8.0",
+    "precommit-hook": "latest"
   }
 
 }
