@@ -1,4 +1,5 @@
-var configs = require('../configs/default');
+var configs = require('../configs/default'),
+    db = require('./db');
 
 module.exports = {
     index: function(req, res, next) {
@@ -13,6 +14,10 @@ module.exports = {
                 });
             };
 
-        render();
+        db.getStats(function(stats) {
+            data.main += 'Всего зарегистрировано: ' + stats[0] + '. Всего товаров: ' + stats[1] + '.';
+
+            render();
+        });
     }
 };

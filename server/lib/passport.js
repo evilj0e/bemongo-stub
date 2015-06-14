@@ -15,9 +15,7 @@ passport.use(new PassportYandex({
     },
     function(accessToken, refreshToken, profile, done) {
         process.nextTick(function () {
-            db.upsertUser(profile.id, profile, function(err, data) {
-                done(err, profile);
-            });
+            db.upsertUser(profile.id, profile, done);
         });
     }
 ));
@@ -27,13 +25,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-    db.getUser(id, function(err, data) {
-        if (data && data.profile) {
-            done(null, data.profile)
-        } else {
-            done(err);
-        }
-    });
+    db.getUser(id, done);
 });
 
 module.exports = passport;

@@ -3,7 +3,7 @@ var db = require('../lib/db');
 module.exports = {
 
     getGoods: function(uid, needCount, cb) {
-        db.getUserGoods(uid, function(err, cursor) {
+        db.getUserGoods(uid, function(cursor) {
             cursor.toArray(function(err, arr) {
                 var result = '';
 
@@ -18,26 +18,12 @@ module.exports = {
         });
     },
 
-    postGood: function(req, res) {
-        par = req.query.s;
-
-        res.send('set par=' + par);
-    },
-
-    addUser: function(req, res) {
-        data = req.query.name;
-
-        db.addUser(data);
-
-        res.send('set name = ' + data);
-    },
-
     getUser: function(uid, cb) {
         uid && db.getUser(uid, cb)
     },
 
     getUsers: function(needCount, cb) {
-        db.getUsers(function(err, cursor) {
+        db.getUsers(function(cursor) {
             cursor.toArray(function(err, arr) {
                 var result = '';
 
@@ -50,5 +36,9 @@ module.exports = {
                 cb(result);
             });
         });
+    },
+
+    getStats: function(cb) {
+        db.getStats(cb)
     }
 };

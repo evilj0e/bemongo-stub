@@ -11,12 +11,10 @@
   },
   "dependencies": {
     "express": ">= 4.12.3",
-    "mongodb": "~2.0.31",
-    "bluebird": "~2.9.27",
+    "mongobird": ">= 0.1.0",
     "passport": "~0.2.2",
     "passport-yandex": "~0.0.3",
     "express-session": "~1.11.2",
     "connect-mongo": "~0.8.1"
   }
-
 }

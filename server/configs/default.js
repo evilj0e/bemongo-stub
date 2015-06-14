@@ -30,7 +30,7 @@ module.exports = {
             route: req.route,
             menu: defaultMenuItems.concat(req.user.username ? authorizedMenuItems : notAuthorizedMenuItems),
             contentType: 'main',
-            main: 'Стаб проект на b_ + mongoDB с авторизацией через OAuth от Я.Паспорта'
+            main: 'Стаб проект на b_ + mongoDB с авторизацией через OAuth от Я.Паспорта<br/><br/>'
         }
     }
 };
