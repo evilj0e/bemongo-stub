@@ -22,23 +22,8 @@ module.exports = {
         });
     },
 
-    users: function(req, res) {
-        var data = configs.defaults(req),
-            render = function() {
-                return res.render('index', data, function(err, html) {
-                    if (err) {
-                        res.send(500, err);
-                    } else {
-                        res.send(html);
-                    }
-                });
-            };
-
-        data.contentType = 'users';
-
-        db.getUsers(false, function(result) {
-            data.users = result;
-            render();
-        }, true);
+    add: function(req, res) {
+        db.addGood(req.user.id);
+        res.redirect('/goods');
     }
 };

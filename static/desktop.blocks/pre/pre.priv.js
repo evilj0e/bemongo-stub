@@ -1,5 +1,5 @@
 module.exports = function (blocks) {
-    blocks.declare('pre', function (data, page) {
+    blocks.declare('pre', function (data) {
         return [
             {
                 tag: 'pre',

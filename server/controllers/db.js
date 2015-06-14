@@ -40,5 +40,9 @@ module.exports = {
 
     getStats: function(cb) {
         db.getStats(cb);
+    },
+
+    addGood: function(uid, cb) {
+        db.addUserGood(uid, cb);
     }
 };

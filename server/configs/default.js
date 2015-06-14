@@ -18,17 +18,23 @@ module.exports = {
                 { title: req.user ? 'Мои товары' : 'Все товары', url: '/goods' }
             ],
             authorizedMenuItems = [
-                { title: req.user.username, url: '/account' },
-                { title: 'Выход', url: '/logout' }
+                { title: req.user.username, url: '/account' }
             ],
             notAuthorizedMenuItems = [
                 { title: 'Авторизоваться', url: '/login' }
-            ];
+            ],
+            additionalItems = {
+                userGoods: [{ title: 'Добавить товар', url: '/goods/add' }],
+                user:      [{ title: 'Выход', url: '/logout' }]
+            };
 
         return {
             language: 'ru',
             route: req.route,
-            menu: defaultMenuItems.concat(req.user.username ? authorizedMenuItems : notAuthorizedMenuItems),
+            menu: {
+                main: defaultMenuItems.concat(req.user.username ? authorizedMenuItems : notAuthorizedMenuItems),
+                additional: additionalItems
+            },
             contentType: 'main',
             main: 'Стаб проект на b_ + mongoDB с авторизацией через OAuth от Я.Паспорта<br/><br/>'
         };

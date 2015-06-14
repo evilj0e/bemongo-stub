@@ -8,6 +8,7 @@ var index    = require('./controllers/index'),
 module.exports = function (app) {
     app.get('/',               index.index);
     app.get('/goods',          good.index);
+    app.get('/goods/add',      ensureAuthanticated, good.add);
     app.get('/account',        ensureAuthanticated, user.index);
     app.get('/users',          ensureAuthanticated, user.users);
 
