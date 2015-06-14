@@ -13,7 +13,8 @@
     "serverOnly": "sudo -u evilj0e node server",
     "jscs": "./node_modules/jscs/bin/jscs --verbose ./server",
     "jshint": "./node_modules/jshint/bin/jshint --verbose ./server",
-    "codestyle": "npm run jscs && npm run jshint"
+    "csslint": "./node_modules/csslint/cli.js ./static --exclude-list=./static/node_modules/,./static/vendors/",
+    "codestyle": "npm run jscs && npm run jshint && npm run csslint"
   },
   "pre-commit": ["codestyle"],
   "repository": {
@@ -26,6 +27,7 @@
   "devDependencies": {
     "jscs": ">= 1.13.1",
     "jshint": ">= 2.8.0",
+    "csslint": ">= 0.10.0",
     "precommit-hook": "latest"
   }
 
