@@ -13,7 +13,7 @@ It includes the examples to obtain & store data in [mongodb](http://www.mongodb.
 
 Used BEM-libraries for a project:
 
-* [bem-bl](https://github.com/bem/bem-bl)
+* [bem-core](https://github.com/bem/bem-core)
 * [bem-components](https://github.com/bem/bem-components)
 
 ## Features of the implementation

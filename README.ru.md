@@ -19,7 +19,7 @@
 Проект реализован по БЭМ-методологии на `priv.js`, собирается [ENB](https://bem.info/tools/bem/enb-bem-techs/)-сборщиком.
 В Bemongo-stub по умолчанию подключены основные БЭМ-библиотеки:
 
-* [bem-bl](https://github.com/bem/bem-bl)
+* [bem-core](https://github.com/bem/bem-core)
 * [bem-components](https://github.com/bem/bem-components)
 
 ## Особенности реализации
