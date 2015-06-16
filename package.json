@@ -8,11 +8,11 @@
   "license": "Commercial License",
   "scripts": {
     "test": "echo \"Error no any test specified yet. \" && exit 1",
-    "init": "cd server && npm i && cd ../static && npm i && ./node_modules/.bin/bower i && ./node_modules/.bin/enb make",
-    "server": "cd ./static && ./node_modules/.bin/enb make && cd .. && node server",
+    "init": "cd server && npm i && cd ../static && npm i && bower i && enb make",
+    "server": "cd ./static && enb make && cd .. && node server",
     "serverOnly": "node server",
-    "jscs": "./node_modules/jscs/bin/jscs --verbose ./server",
-    "jshint": "./node_modules/jshint/bin/jshint --verbose ./server",
+    "jscs": "jscs --verbose ./server",
+    "jshint": "jshint --verbose ./server",
     "csslint": "./node_modules/csslint/cli.js ./static --exclude-list=./static/node_modules/,./static/vendors/",
     "codestyle": "npm run jscs && npm run jshint && npm run csslint"
   },
