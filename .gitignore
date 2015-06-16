@@ -6,7 +6,7 @@ npm-debug.log
 *.log
 node_modules
 static/node_modules
-static/vendors
+static/libs
 static/.enb/tmp
 static/desktop.bundles/*/*
 !static/desktop.bundles/*/blocks

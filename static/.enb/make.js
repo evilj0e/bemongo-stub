@@ -43,11 +43,11 @@ module.exports = function(config) {
     config.nodeMask(/desktop.bundles\/.*/, function(nodeConfig) {
         function getLevels() {
             return [
-                {"path":"vendors/bem-core/common.blocks","check":false},
-                {"path":"vendors/bem-core/desktop.blocks","check":false},
-                
-                {"path":"vendors/bem-components/common.blocks","check":false},
-                {"path":"vendors/bem-components/desktop.blocks","check":false},
+                {"path":"libs/bem-core/common.blocks","check":false},
+                {"path":"libs/bem-core/desktop.blocks","check":false},
+
+                {"path":"libs/bem-components/common.blocks","check":false},
+                {"path":"libs/bem-components/desktop.blocks","check":false},
 
                 {"path":"desktop.blocks","check":true}
             ].map(function(l) { return config.resolvePath(l); });
