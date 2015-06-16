@@ -4,7 +4,6 @@
   "author": "Anton Konev <antonykonev@yandex.ru>",
   "dependencies": {
     "enb": "~0.15.0",
-    "enb-xjst": "~1.2.0",
     "bower": "~1.4.1",
     "vow": "~0.4.9",
     "vow-fs": "~0.3.4"

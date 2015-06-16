@@ -1,6 +1,6 @@
 {
   "name": "static",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "ignore": [
     "**/.*",
     "node_modules",
@@ -10,7 +10,7 @@
     "tests"
   ],
   "dependencies": {
-    "bem-bl": "git://github.com/bem/bem-bl.git",
+    "bem-core": "git://github.com/bem/bem-core.git",
     "bem-components": "git://github.com/bem/bem-components.git"
   }
 }

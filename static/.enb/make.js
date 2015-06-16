@@ -43,8 +43,8 @@ module.exports = function(config) {
     config.nodeMask(/desktop.bundles\/.*/, function(nodeConfig) {
         function getLevels() {
             return [
-                {"path":"vendors/bem-bl/blocks-common","check":false},
-                {"path":"vendors/bem-bl/blocks-desktop","check":false},
+                {"path":"vendors/bem-core/common.blocks","check":false},
+                {"path":"vendors/bem-core/desktop.blocks","check":false},
                 
                 {"path":"vendors/bem-components/common.blocks","check":false},
                 {"path":"vendors/bem-components/desktop.blocks","check":false},
@@ -58,7 +58,6 @@ module.exports = function(config) {
             [ require("enb/techs/file-provider"), { target: "?.bemdecl.js" } ],
             require("enb/techs/deps-old"),
             require("enb/techs/files"),
-            [ require('enb-xjst/techs/bemhtml'), { devMode: false } ],
             [ require("./enb/techs/priv-i18n"), { lang: "{lang}" } ],
             [ require("enb/techs/i18n-merge-keysets"), { lang: "all" }],
             [ require("enb/techs/i18n-merge-keysets"), { lang: "{lang}" }],
@@ -72,6 +71,6 @@ module.exports = function(config) {
             [ require("enb/techs/css-ie8"), { sourceSuffixes: ['css', 'ie.css', 'ie8.css'] }],
             [ require("enb/techs/css-ie9"), { sourceSuffixes: ['css', 'ie9.css'] }]
         ]);
-        nodeConfig.addTargets(["_?.{lang}.js", "?.priv.js", "?.priv.{lang}.js", "?.bemhtml.js", "_?.css", "_?.ie6.css", "_?.ie7.css", "_?.ie8.css", "_?.ie9.css"]);
+        nodeConfig.addTargets(["_?.{lang}.js", "?.priv.js", "?.priv.{lang}.js", "_?.css", "_?.ie6.css", "_?.ie7.css", "_?.ie8.css", "_?.ie9.css"]);
     });
 };
