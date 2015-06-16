@@ -1,5 +1,5 @@
 {
-  "name": "goods-shelf",
+  "name": "bemongo-stub",
   "version": "0.0.1",
   "description": "The test project on b_ with priv.js",
   "author": "@evilj0e",
@@ -9,8 +9,8 @@
   "scripts": {
     "test": "echo \"Error no any test specified yet. \" && exit 1",
     "init": "cd server && npm i && cd ../static && npm i && ./node_modules/.bin/bower i && ./node_modules/.bin/enb make",
-    "server": "cd ./static && ./node_modules/.bin/enb make && cd .. && sudo -u evilj0e node server",
-    "serverOnly": "sudo -u evilj0e node server",
+    "server": "cd ./static && ./node_modules/.bin/enb make && cd .. && node server",
+    "serverOnly": "node server",
     "jscs": "./node_modules/jscs/bin/jscs --verbose ./server",
     "jshint": "./node_modules/jshint/bin/jshint --verbose ./server",
     "csslint": "./node_modules/csslint/cli.js ./static --exclude-list=./static/node_modules/,./static/vendors/",
@@ -19,7 +19,7 @@
   "pre-commit": ["codestyle"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/evilj0e/goods-shelf"
+    "url": "https://github.com/evilj0e/bemongo-stub"
   },
   "dependencies": {
     "nodemon": ">= 1.3.7"
