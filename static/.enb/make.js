@@ -13,11 +13,7 @@ module.exports = function(config) {
                     }
                 ],
                 [ require("enb/techs/file-copy"), { sourceTarget: "?.{lang}.js", destTarget: "_?.{lang}.js" } ],
-                [ require("enb/techs/file-copy"), { sourceTarget: "?.css", destTarget: "_?.css" } ],
-                [ require("enb/techs/file-copy"), { sourceTarget: "?.ie6.css", destTarget: "_?.ie6.css" } ],
-                [ require("enb/techs/file-copy"), { sourceTarget: "?.ie7.css", destTarget: "_?.ie7.css" } ],
-                [ require("enb/techs/file-copy"), { sourceTarget: "?.ie8.css", destTarget: "_?.ie8.css" } ],
-                [ require("enb/techs/file-copy"), { sourceTarget: "?.ie9.css", destTarget: "_?.ie9.css" } ]
+                [ require("enb/techs/file-copy"), { sourceTarget: "?.css", destTarget: "_?.css" } ]
             ]);
         });
     });
@@ -31,11 +27,7 @@ module.exports = function(config) {
                     }
                 ],
                 [ require("enb/techs/borschik"), { sourceTarget: "?.{lang}.js", destTarget: "_?.{lang}.js", minify: true, freeze: true } ],
-                [ require("enb/techs/borschik"), { sourceTarget: "?.css", destTarget: "_?.css", minify: true, freeze: true } ],
-                [ require("enb/techs/borschik"), { sourceTarget: "?.ie6.css", destTarget: "_?.ie6.css", minify: true, freeze: true } ],
-                [ require("enb/techs/borschik"), { sourceTarget: "?.ie7.css", destTarget: "_?.ie7.css", minify: true, freeze: true } ],
-                [ require("enb/techs/borschik"), { sourceTarget: "?.ie8.css", destTarget: "_?.ie8.css", minify: true, freeze: true } ],
-                [ require("enb/techs/borschik"), { sourceTarget: "?.ie9.css", destTarget: "_?.ie9.css", minify: true, freeze: true } ]
+                [ require("enb/techs/borschik"), { sourceTarget: "?.css", destTarget: "_?.css", minify: true, freeze: true } ]
             ]);
         });
     });
@@ -65,12 +57,8 @@ module.exports = function(config) {
             [ require("enb/techs/i18n-lang-js"), { lang: "{lang}" } ],
             require('enb/techs/js'),
             [ require("./enb/techs/js-i18n"), { lang: "{lang}" } ],
-            require("enb/techs/css"),
-            [ require("enb/techs/css-ie6"), { sourceSuffixes: ['css', 'ie.css', 'ie6.css'] }],
-            [ require("enb/techs/css-ie7"), { sourceSuffixes: ['css', 'ie.css', 'ie7.css'] }],
-            [ require("enb/techs/css-ie8"), { sourceSuffixes: ['css', 'ie.css', 'ie8.css'] }],
-            [ require("enb/techs/css-ie9"), { sourceSuffixes: ['css', 'ie9.css'] }]
+            require("enb/techs/css")
         ]);
-        nodeConfig.addTargets(["_?.{lang}.js", "?.priv.js", "?.priv.{lang}.js", "_?.css", "_?.ie6.css", "_?.ie7.css", "_?.ie8.css", "_?.ie9.css"]);
+        nodeConfig.addTargets(["_?.{lang}.js", "?.priv.js", "?.priv.{lang}.js", "_?.css"]);
     });
 };
