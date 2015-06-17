@@ -5,7 +5,7 @@
   "author": "@evilj0e",
   "email": "antonykonev@yandex.ru",
   "main": "index.js",
-  "license": "Commercial License",
+  "license": "MIT",
   "scripts": {
     "test": "echo \"Error no any test specified yet. \" && exit 1"
   },
