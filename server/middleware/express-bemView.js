@@ -39,37 +39,6 @@ var getBemView = function (bundleName, languageId) {
 
 /**
  *
- * @param {Request} req
- * @returns {{languageId: string, bundleName: string}}
- */
-var getLanguageAndBundleByRequest = function (req) {
-    var languageId = req.langdetect ? req.langdetect.id : void 0,
-        bundleName = 'desktop';
-
-    if (req.uatraits && req.uatraits.isMobile) {
-        bundleName = req.uatraits.isTouch || req.uatraits.MultiTouch ? 'touch' : 'mobile';
-    }
-
-    return {
-        languageId: languageId,
-        bundleName: bundleName
-    };
-};
-
-/**
- * Используем данные langdetect и uatraits для определения bundleName и languageId
- *
- * @param {Request} req
- * @returns {BemView}
- */
-var getBemViewByRequest = function (req) {
-    var data = module.exports.getLanguageAndBundleByRequest(req);
-
-    return getBemView(data.bundleName, data.languageId);
-};
-
-/**
- *
  * @param {Object} app
  * @param {Object} [viewOptions]
  * @param {String} [viewOptions.templateRoot='./']
@@ -85,7 +54,10 @@ var expressBemView = function (app, viewOptions) {
 
         var self = this,
             req = this.req,
-            bemView = getBemViewByRequest(req);
+            bemView = getBemView({
+                bundleName: viewOptions.bundleName,
+                languageId: viewOptions.languageId
+            });
 
         // support callback function as second arg
         if (typeof options === 'function') {
@@ -109,4 +81,3 @@ var expressBemView = function (app, viewOptions) {
 };
 
 module.exports = expressBemView;
-module.exports.getLanguageAndBundleByRequest = getLanguageAndBundleByRequest;
