@@ -1,35 +1,33 @@
-var express  = require('express'),
-    app      = express(),
-    config   = require('./configs/default'),
-    path     = require('path'),
-    root     = path.join(__dirname, '..'),
-    session  = require('express-session'),
-    MongoStore = require('connect-mongo')(session),
-    passport = require('./lib/passport');
+var path = require('path'),
+    recluster = require('recluster'),
+    config   = require('./configs/default');
 
-module.exports = function(sock) {
-    app.use(function(req, res, next) {
-        console.log(req.method, req.url);
-        next();
+process.env.NODE_ENV = config.recluster.environment;
+
+module.exports = function() {
+    process.on('SIGUSR2', function () {
+        console.info('[master] Got SIGUSR2, reloading cluster...');
+        cluster.reload();
     });
 
-    app.use(session({
-        secret: 'goods',
-        resave: true,
-        saveUninitialized: true,
-        proxy: true,
-        store: new MongoStore({
-            db: 'goods',
-            url: 'mongodb://localhost:27017/goods/sessions'
-        })
-    }));
-    app.use(passport.initialize());
-    app.use(passport.session());
-    app.use(express.static(path.join(root, 'static')));
+    var cluster = recluster(path.join(__dirname, 'worker.js'), {
+        workers: config.recluster.workers
+    });
 
-    require('./middleware/express-bemView')(app, config.view);
-    require('./router')(app);
+    cluster.on('exit', function (worker) {
+        if (worker.process.exitCode) {
+            console.log('[%s] Worker died (exit code: %s)',
+                worker.process.pid,
+                worker.process.exitCode);
+        }
+    });
 
-    app.listen(sock);
-    console.log('Start listening socket: ', sock);
+    cluster.on('disconnect', function (worker) {
+        console.log('[%s] Worker disconnected',
+            worker.process.pid);
+    });
+
+    cluster.run();
+
+    console.log('[master] Spawned cluster, kill -s SIGUSR2', process.pid, 'to reload');
 };

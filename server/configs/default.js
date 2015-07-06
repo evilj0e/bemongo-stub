@@ -2,13 +2,17 @@ var path = require('path'),
     root = path.join(__dirname, '../..');
 
 module.exports = {
+    recluster: {
+        environment: 'development',
+        socket: 3000,
+        workers: 4
+    },
     view: {
         templateRoot: path.join(root, 'static'),
         bundleName: 'desktop',
         availableBundles: ['desktop'],
         languageId: 'ru'
     },
-
     defaults: function(req) {
         req.user = req.user ? req.user : {};
 
