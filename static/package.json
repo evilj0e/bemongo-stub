@@ -1,6 +1,6 @@
 {
   "name": "bemongo-stub",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Anton Konev <antonykonev@yandex.ru>",
   "dependencies": {
     "enb": "~0.15.0",
